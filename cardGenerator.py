@@ -3,10 +3,16 @@ import re
 front = open("FrontSubtitles.txt").read()
 back = open("BackSubtitles.txt").read()
 
-frontMatches = re.findall(r'(\d+ --> \d+)\n(.+?)(?=\d+ --> \d+)', front, flags=re.MULTILINE|re.DOTALL)
-backMatches = re.findall(r'(\d+ --> \d+)\n(.+?)(?=\d+ --> \d+)', back, flags=re.MULTILINE|re.DOTALL)
+def createMatchObject(string):
+    matches = re.findall(r'(\d+ --> \d+)\n(.+?)(?=\d+ --> \d+)', string, flags=re.MULTILINE|re.DOTALL)
+    return { time : line for time,line in matches }
 
-for match in frontMatches:
-    print(match)
-for match in backMatches:
-    print(match)
+
+frontMatches = createMatchObject(front)
+backMatches = createMatchObject(back)
+
+for key, value in frontMatches.items():
+    print(key, '->', value)
+
+for key, value in backMatches.items():
+    print(key, '->', value)
