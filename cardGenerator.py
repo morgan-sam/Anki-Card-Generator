@@ -14,5 +14,11 @@ def printObject(obj):
 frontMatches = createMatchObject(front)
 backMatches = createMatchObject(back)
 
-printObject(frontMatches)
-printObject(backMatches)
+cardArray = []
+
+for key, value in frontMatches.items():
+    if key in backMatches:
+        cardArray.append({"front": value, "back": backMatches[key] })
+
+for val in cardArray:
+    print(val)
