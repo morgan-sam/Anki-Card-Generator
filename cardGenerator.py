@@ -7,12 +7,12 @@ def createMatchObject(string):
     matches = re.findall(r'(\d+ --> \d+)\n(.+?)(?=\d+ --> \d+)', string, flags=re.MULTILINE|re.DOTALL)
     return { time : line for time,line in matches }
 
+def printObject(obj):
+    for key, value in obj.items():
+        print(key, '->', value)
 
 frontMatches = createMatchObject(front)
 backMatches = createMatchObject(back)
 
-for key, value in frontMatches.items():
-    print(key, '->', value)
-
-for key, value in backMatches.items():
-    print(key, '->', value)
+printObject(frontMatches)
+printObject(backMatches)
