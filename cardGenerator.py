@@ -33,16 +33,16 @@ cardArray = generateCardArray(frontMatches, backMatches)
 
 anki_model = genanki.Model(
     1607392319,
-    'Simple Model',
+    'Card Model',
     fields=[
-        {'name': 'Question'},
-        {'name': 'Answer'},
+        {'name': 'Target'},
+        {'name': 'Source'},
     ],
     templates=[
         {
             'name': 'Card 1',
-            'qfmt': '{{Question}}',
-            'afmt': '{{FrontSide}}<hr id="answer">{{Answer}}',
+            'qfmt': '{{Target}}',
+            'afmt': '{{FrontSide}}<hr id="answer">{{Source}}',
         },
     ])
 
