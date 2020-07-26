@@ -23,15 +23,17 @@ def printObject(obj):
         print(key, '->', value)
 
 
+def generateCardArray(frontMatches, backMatches):
+    cardArray = []
+    for key, value in frontMatches.items():
+        if key in backMatches:
+            cardArray.append({"front": value, "back": backMatches[key]})
+    return cardArray
+
+
 frontMatches = createMatchObject(front)
 backMatches = createMatchObject(back)
-
-cardArray = []
-
-for key, value in frontMatches.items():
-    if key in backMatches:
-        cardArray.append({"front": value, "back": backMatches[key]})
-
+cardArray = generateCardArray(frontMatches, backMatches)
 
 anki_model = genanki.Model(
     1607392319,
