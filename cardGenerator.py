@@ -24,11 +24,7 @@ def printObject(obj):
 
 
 def generateCardArray(frontMatches, backMatches):
-    cardArray = []
-    for key, value in frontMatches.items():
-        if key in backMatches:
-            cardArray.append({"front": value, "back": backMatches[key]})
-    return cardArray
+    return [{"front": value, "back": backMatches[key]} for key, value in frontMatches.items() if key in backMatches]
 
 
 frontMatches = createMatchObject(front)
