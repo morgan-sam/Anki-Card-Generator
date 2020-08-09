@@ -19,9 +19,14 @@ def printObject(obj):
         print(key, '->', value)
 
 
-def subtitlesToCardArray():
+def getMatches():
     front = open("FrontSubtitles.txt").read()
     back = open("BackSubtitles.txt").read()
     frontMatches = createMatchObject(front)
     backMatches = createMatchObject(back)
+    return [frontMatches, backMatches]
+
+
+def subtitlesToCardArray():
+    [frontMatches, backMatches] = getMatches()
     return [{"front": value, "back": backMatches[key]} for key, value in frontMatches.items() if key in backMatches]
