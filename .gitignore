@@ -4,3 +4,4 @@ Sentences.txt
 language_subtitles.apkg
 *.pyc
 /keys
+.env
