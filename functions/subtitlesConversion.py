@@ -19,7 +19,7 @@ def printObject(obj):
         print(key, '->', value)
 
 
-def generateCardArray():
+def subtitlesToCardArray():
     front = open("FrontSubtitles.txt").read()
     back = open("BackSubtitles.txt").read()
     frontMatches = createMatchObject(front)

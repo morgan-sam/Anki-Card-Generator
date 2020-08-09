@@ -1,7 +1,7 @@
 
-from functions.doubleList import generateCardArray
+from functions.subtitlesConversion import subtitlesToCardArray
 from functions.generateCards import generateDeck
 
 
-cardArray = generateCardArray()
+cardArray = subtitlesToCardArray()
 generateDeck(cardArray)
