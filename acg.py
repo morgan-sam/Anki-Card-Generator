@@ -3,5 +3,5 @@ from functions.listConversion import listToCardArray
 from functions.subtitlesConversion import subtitlesToCardArray
 
 # cardArray = subtitlesToCardArray()
-# cardArray = listToCardArray()
+cardArray = listToCardArray()
 # generateDeck(cardArray)
