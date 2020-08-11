@@ -24,6 +24,5 @@ def convertTextToMp3(inputText):
         input=synthesis_input, voice=voice, audio_config=audio_config
     )
 
-    with open('output.mp3', 'wb') as out:
+    with open(inputText.replace(" ", "_") + '.mp3', 'wb') as out:
         out.write(response.audio_content)
-    print('Created "output.mp3"')
