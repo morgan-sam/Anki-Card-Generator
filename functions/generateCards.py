@@ -1,5 +1,6 @@
 import re
 import genanki
+from functions.convertTextToMp3 import convertTextToMp3
 
 
 def generateDeck(cardArray):
@@ -24,6 +25,7 @@ def generateDeck(cardArray):
         'Language Subtitles')
 
     for val in cardArray:
+        convertTextToMp3(val['back'])
         anki_note = genanki.Note(
             model=anki_model,
             fields=[val["front"], val["back"]])
