@@ -13,8 +13,8 @@ def convertTextToMp3(inputText):
         text=inputText)
 
     voice = texttospeech.VoiceSelectionParams(
-        language_code='en-US',
-        name='en-US-Wavenet-C',
+        language_code='es-US',
+        name='es-ES-Standard-A',
         ssml_gender=texttospeech.SsmlVoiceGender.FEMALE)
 
     audio_config = texttospeech.AudioConfig(

@@ -6,4 +6,4 @@ from functions.convertTextToMp3 import convertTextToMp3
 # cardArray = listToCardArray()
 # generateDeck(cardArray)
 
-convertTextToMp3('hey whats up')
+convertTextToMp3('Encantado de conocerte')
