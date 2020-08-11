@@ -24,5 +24,9 @@ def convertTextToMp3(inputText):
         input=synthesis_input, voice=voice, audio_config=audio_config
     )
 
-    with open(inputText.replace(" ", "_") + '.mp3', 'wb') as out:
+    if not os.path.exists('./audio/'):
+        os.mkdir('./audio/')
+    filename = inputText.replace(" ", "_") + '.mp3'
+    savepath = os.path.join('./audio/', filename)
+    with open(savepath, 'wb') as out:
         out.write(response.audio_content)
