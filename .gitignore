@@ -5,3 +5,4 @@ output.apkg
 *.pyc
 /keys
 *.mp3
+text.txt
