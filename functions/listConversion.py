@@ -8,6 +8,8 @@ def listToCardArray():
     file = open('Sentences.txt')
     for line in file.read().splitlines():
         sentence = (' '.join(line.split()))
+        if sentence.endswith('.'):
+            sentence = sentence[:-1]
         entry = {"front": sentence, "back": translator.translate(
             sentence, dest='es').text}
         translations.append(entry)
