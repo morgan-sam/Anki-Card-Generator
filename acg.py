@@ -5,7 +5,7 @@ from functions.subtitlesConversion import subtitlesToCardArray
 # cardArray = subtitlesToCardArray()
 # cardArray = listToCardArray()
 # generateDeck(cardArray)
-
+import re
 
 import urllib.request
 url = 'https://en.wikipedia.org/wiki/Snake'
@@ -14,4 +14,5 @@ html = uf.read()
 
 soup = BeautifulSoup(html, 'html.parser')
 for p in soup.find_all('p'):
-    print(p.get_text() + "\n")
+    p = re.sub(r'\[[^\[\]]+\]', '', p.get_text())
+    print(p + "\n")
