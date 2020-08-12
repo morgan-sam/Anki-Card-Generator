@@ -1,6 +1,5 @@
 import re
 import genanki
-from functions.convertTextToMp3 import convertTextToMp3
 
 
 def generateDeck(cardArray):
@@ -26,19 +25,16 @@ def generateDeck(cardArray):
         'Language Subtitles')
 
     for val in cardArray:
-        convertTextToMp3(val['back'])
-        audioFileName = '[sound:{}.mp3]'.format(val["back"].replace(" ", "_"))
-        print(audioFileName)
         anki_note = genanki.Note(
             model=anki_model,
-            fields=[val["front"], val["back"], audioFileName])
+            fields=[val["front"], val["back"], '[sound:{}]'.format(val["audio"])])
         anki_deck.add_note(anki_note)
 
     my_package = genanki.Package(anki_deck)
 
     mediaArray = []
     for val in cardArray:
-        mediaArray.append('./audio/' + val["back"].replace(" ", "_") + '.mp3')
+        mediaArray.append('./audio/' + val["audio"])
 
     my_package.media_files = mediaArray
     my_package.write_to_file('output.apkg')

@@ -1,5 +1,6 @@
 
 from googletrans import Translator
+from functions.convertTextToMp3 import convertTextToMp3
 
 
 def listToCardArray():
@@ -11,6 +12,8 @@ def listToCardArray():
         if sentence.endswith('.'):
             sentence = sentence[:-1]
         translation = translator.translate(sentence, dest='es').text
-        entry = {"front": sentence, "back": translation}
+        convertTextToMp3(translation)
+        audioFileName = '{}.mp3'.format(translation.replace(" ", "_"))
+        entry = {"front": sentence, "back": translation, "audio": audioFileName}
         translations.append(entry)
     return translations
