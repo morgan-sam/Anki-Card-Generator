@@ -1,7 +1,7 @@
 FrontSubtitles.txt
 BackSubtitles.txt
 Sentences.txt
-language_subtitles.apkg
+output.apkg
 *.pyc
 /keys
 *.mp3

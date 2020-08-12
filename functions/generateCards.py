@@ -11,12 +11,13 @@ def generateDeck(cardArray):
         fields=[
             {'name': 'Target'},
             {'name': 'Source'},
+            {'name': 'Audio'},
         ],
         templates=[
             {
                 'name': 'Card 1',
                 'qfmt': '{{Target}}',
-                'afmt': '{{FrontSide}}<hr id="answer">{{Source}}',
+                'afmt': '{{FrontSide}}<hr id="answer">{{Source}}<br>{{Audio}}'
             },
         ])
 
@@ -26,9 +27,18 @@ def generateDeck(cardArray):
 
     for val in cardArray:
         convertTextToMp3(val['back'])
+        audioFileName = '[sound:{}.mp3]'.format(val["back"].replace(" ", "_"))
+        print(audioFileName)
         anki_note = genanki.Note(
             model=anki_model,
-            fields=[val["front"], val["back"]])
+            fields=[val["front"], val["back"], audioFileName])
         anki_deck.add_note(anki_note)
 
-    genanki.Package(anki_deck).write_to_file('language_subtitles.apkg')
+    my_package = genanki.Package(anki_deck)
+
+    mediaArray = []
+    for val in cardArray:
+        mediaArray.append('./audio/' + val["back"].replace(" ", "_") + '.mp3')
+
+    my_package.media_files = mediaArray
+    my_package.write_to_file('output.apkg')
