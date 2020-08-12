@@ -15,7 +15,7 @@ def generateDeck(cardArray):
         templates=[
             {
                 'name': 'Card 1',
-                'qfmt': '{{Target}}',
+                'qfmt': '<div style="display: flex; justify-content: center;"><div">{{Target}}</div></div>',
                 'afmt': '{{FrontSide}}<hr id="answer">{{Source}}<br>{{Audio}}'
             },
         ])
