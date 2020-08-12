@@ -4,6 +4,16 @@ import os
 
 
 def convertTextToMp3(inputText):
+
+    if not os.path.exists('./audio/'):
+        os.mkdir('./audio/')
+    filename = inputText.replace(" ", "_") + '.mp3'
+    savepath = os.path.join('./audio/', filename)
+
+    if os.path.exists(savepath):
+        print(savepath + ' already exists')
+        return 0
+
     parent = os.path.abspath(os.path.join(__file__, '../..'))
     os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = parent + \
         '/keys/acgApiKey.json'
@@ -24,9 +34,6 @@ def convertTextToMp3(inputText):
         input=synthesis_input, voice=voice, audio_config=audio_config
     )
 
-    if not os.path.exists('./audio/'):
-        os.mkdir('./audio/')
-    filename = inputText.replace(" ", "_") + '.mp3'
-    savepath = os.path.join('./audio/', filename)
     with open(savepath, 'wb') as out:
         out.write(response.audio_content)
+    print('Created file: ' + savepath)
