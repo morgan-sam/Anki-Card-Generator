@@ -5,7 +5,7 @@ from functions.subtitlesConversion import subtitlesToCardArray
 from functions.extractSentencesFromText import extractSentencesFromText
 
 # cardArray = subtitlesToCardArray()
-# cardArray = listToCardArray()
+sentenceList = extractSentencesFromText()
+print(sentenceList)
+# cardArray = listToCardArray(sentenceList)
 # generateDeck(cardArray)
-
-print(extractSentencesFromText())

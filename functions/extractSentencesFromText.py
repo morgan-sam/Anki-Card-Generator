@@ -1,4 +1,5 @@
 import re
+import spacy
 
 
 def removeCommas(string):
@@ -13,10 +14,9 @@ def removeNumericCommas(str):
 def extractSentencesFromText():
     sentences = []
     file = open('text.txt')
-    for line in file.read().splitlines():
-        line = (' '.join(line.split()))
-        if line.endswith('.'):
-            line = line[:-1]
-        line = removeNumericCommas(line)
-        sentences.append(re.split('\.|,', line))
+    doc = file.read()
+    nlp = spacy.load('en_core_web_sm')
+    tokens = nlp(doc)
+    for sent in tokens.sents:
+        sentences.append(sent.string.strip())
     return sentences
