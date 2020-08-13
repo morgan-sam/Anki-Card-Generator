@@ -17,4 +17,4 @@ def extractSentencesFromText():
         if line.endswith('.'):
             line = line[:-1]
         line = removeNumericCommas(line)
-        print(line)
+        print(re.split('\.|,', line))
