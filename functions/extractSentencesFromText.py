@@ -11,10 +11,12 @@ def removeNumericCommas(str):
 
 
 def extractSentencesFromText():
+    sentences = []
     file = open('text.txt')
     for line in file.read().splitlines():
         line = (' '.join(line.split()))
         if line.endswith('.'):
             line = line[:-1]
         line = removeNumericCommas(line)
-        print(re.split('\.|,', line))
+        sentences.append(re.split('\.|,', line))
+    return sentences

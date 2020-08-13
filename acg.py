@@ -8,4 +8,4 @@ from functions.extractSentencesFromText import extractSentencesFromText
 # cardArray = listToCardArray()
 # generateDeck(cardArray)
 
-extractSentencesFromText()
+print(extractSentencesFromText())
