@@ -13,8 +13,8 @@ def removeNumericCommas(str):
 def extractSentencesFromText():
     file = open('text.txt')
     for line in file.read().splitlines():
-        sentence = (' '.join(line.split()))
-        if sentence.endswith('.'):
-            sentence = sentence[:-1]
-        sentence = removeNumericCommas(sentence)
-        print(sentence)
+        line = (' '.join(line.split()))
+        if line.endswith('.'):
+            line = line[:-1]
+        line = removeNumericCommas(line)
+        print(line)
